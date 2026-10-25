@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>索引師：首卷 · Indexer: Volume I · 開發進度</title>
+<meta name="description" content="《索引師：首卷》Indexer: Volume I 的 Unity 開發進度展示：魔法占星圖書館場景、持魔棒的索引師角色、五段法術節拍與 PlayMode 實機畫面。">
+<meta property="og:title" content="索引師：首卷 · Indexer: Volume I">
+<meta property="og:description" content="Unity 魔法占星圖書館與五段法術的開發進度。">
+<meta property="og:image" content="images/01_場景全景.png">
+<style>
+:root{color-scheme:dark;--ink:#15121b;--panel:#231c2d;--line:#4a3a56;--gold:#dfbf86;--muted:#b9acc4;--text:#f1e8db}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--text);font:16px/1.65 "Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--gold)}
+main{max-width:1280px;margin:auto;padding:48px 24px 80px}
+header{text-align:center;margin-bottom:56px}
+header small{color:var(--gold);letter-spacing:.3em;font-size:12px}
+h1{font-size:clamp(32px,5vw,56px);font-weight:600;margin:14px 0 8px;line-height:1.2}
+h1 em{font-style:normal;color:var(--gold);font-weight:400}
+header .en{color:var(--muted);letter-spacing:.1em;font-size:clamp(14px,2vw,18px)}
+header p.lead{max-width:720px;margin:22px auto 0;color:var(--muted)}
+section{margin:72px 0}
+h2{font-size:28px;font-weight:500;margin:0 0 6px}
+h2 small{display:block;color:var(--gold);font-size:12px;letter-spacing:.25em;margin-bottom:6px}
+.caption{color:var(--muted);margin:0 0 24px;max-width:720px}
+.hero{display:block;width:100%;border-radius:14px;background:#0b0810;border:1px solid var(--line)}
+.hero img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;border-radius:14px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+figure img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#0b0810}
+figcaption{padding:12px 16px 14px}
+figcaption b{display:block;color:var(--gold);font-weight:500;font-size:15px}
+figcaption span{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+.spells{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:12px}
+.spell{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.spell img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.spell .body{padding:14px 16px 16px}
+.spell .body b{display:block;color:var(--gold);font-size:17px;font-weight:500}
+.spell .body .en{color:var(--muted);font-size:13px;letter-spacing:.08em;margin:2px 0 8px}
+.spell .body p{margin:0;font-size:14px;color:var(--text)}
+.spell .body .tag{display:inline-block;margin-top:10px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;font-size:11px;color:var(--muted);letter-spacing:.1em}
+.meta{margin-top:48px;padding:22px 26px;border-left:2px solid var(--gold);background:#1c1725;border-radius:0 10px 10px 0}
+.meta p{margin:0 0 8px;font-size:14px;color:var(--muted)}
+.meta p:last-child{margin:0}
+footer{margin-top:56px;color:var(--muted);font-size:13px;text-align:center}
+footer a{text-decoration:none}
+@media(max-width:600px){main{padding:28px 14px 48px}section{margin:48px 0}}
+</style>
+<main>
+<header>
+  <small>UNITY · WORK IN PROGRESS</small>
+  <h1>索引師<em>：首卷</em></h1>
+  <div class="en">Indexer: Volume I</div>
+  <p class="lead">一個以魔法占星圖書館為舞台的本地對戰原型。索引師以「魔棒－詠書」為武器，從書架之間牽引、錨定、彼此拖拉。這頁是 Unity 編輯模式與 PlayMode 的實際畫面，不是概念圖。</p>
+</header>
+
+<section>
+  <h2><small>場景</small>魔法占星圖書館</h2>
+  <p class="caption">URP Forward+ 下 1920×1080 的 GPU 擷取。木作尺度與燈光熱點已針對遊戲距離調整。</p>
+  <a class="hero" href="images/01_場景全景.png"><img src="images/01_場景全景.png" alt="圖書館全景"></a>
+  <div class="grid" style="margin-top:14px">
+    <figure><a href="images/02_遊戲距離.png"><img src="images/02_遊戲距離.png" alt="遊戲距離"></a><figcaption><b>遊戲距離</b><span>玩家視角，FOV 40</span></figcaption></figure>
+    <figure><a href="images/05_書櫃.png"><img src="images/05_書櫃.png" alt="書櫃木作"></a><figcaption><b>書櫃木作</b><span>橡木、金箔書脊</span></figcaption></figure>
+    <figure><a href="images/04_星儀.png"><img src="images/04_星儀.png" alt="黃銅星儀"></a><figcaption><b>黃銅星儀</b><span>場景中心儀式物件</span></figcaption></figure>
+    <figure><a href="images/13_PlayMode實機.png"><img src="images/13_PlayMode實機.png" alt="PlayMode 實機"></a><figcaption><b>PlayMode 實機</b><span>Editor 進 PlayMode 4 秒擷取</span></figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><small>角色</small>索引師</h2>
+  <p class="caption">紫金少年魔法師，使用者核准設計板，Meshy 生成＋重拓樸 100,213 三角，有效 Humanoid、十三段動作。</p>
+  <a class="hero" href="images/03_索引師.png"><img src="images/03_索引師.png" alt="索引師角色"></a>
+</section>
+
+<section>
+  <h2><small>法術</small>五段節拍 · Library Spellbook</h2>
+  <p class="caption">法術命名走大英博物館／皇家學會檔案員的調性，術式本身是從書架之間牽引與錨定的互動玩法雛形。</p>
+  <div class="spells">
+    <article class="spell">
+      <img src="images/06_索引_Index.png" alt="索引 Index">
+      <div class="body"><b>索引</b><div class="en">INDEX</div><p>開手；魔棒畫出書脊符號，鎖定對手。</p><span class="tag">Cast</span></div>
+    </article>
+    <article class="spell">
+      <img src="images/07_卷籤_Bookmark.png" alt="卷籤 Bookmark">
+      <div class="body"><b>卷籤</b><div class="en">BOOKMARK</div><p>持咒；在對手身上留一條可拉的絲線。</p><span class="tag">Tether Hold</span></div>
+    </article>
+    <article class="spell">
+      <img src="images/08_總目_Compendium.png" alt="總目 Compendium">
+      <div class="body"><b>總目</b><div class="en">COMPENDIUM</div><p>蓄力；拉力蓄滿會瞬間翻動多卷目錄。</p><span class="tag">Charge</span></div>
+    </article>
+    <article class="spell">
+      <img src="images/09_書鎮_Paperweight.png" alt="書鎮 Paperweight">
+      <div class="body"><b>書鎮</b><div class="en">PAPERWEIGHT</div><p>錨定；把自己壓死在書桌，不被拉走。</p><span class="tag">Anchor</span></div>
+    </article>
+    <article class="spell">
+      <img src="images/10_夾頁_PressedPage.png" alt="夾頁 Pressed-Page">
+      <div class="body"><b>夾頁</b><div class="en">PRESSED-PAGE</div><p>被拉；被捲進對手的目錄，形似標本。</p><span class="tag">Pulled</span></div>
+    </article>
+  </div>
+  <div class="grid" style="margin-top:20px">
+    <figure><a href="images/11_法術命中.png"><img src="images/11_法術命中.png" alt="命中"></a><figcaption><b>命中閉環</b><span>Contact</span></figcaption></figure>
+    <figure><a href="images/12_法術維持.png"><img src="images/12_法術維持.png" alt="維持"></a><figcaption><b>維持流光</b><span>Hold</span></figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><small>目前進度</small>做了什麼、還欠什麼</h2>
+  <div class="grid">
+    <figure style="padding:18px 20px"><figcaption><b style="color:var(--gold)">已完成</b><span style="color:var(--text);margin-top:6px">URP 場景、索引師模型／骨架／十三段動畫、星軌牽引術時序、Editor 編譯／匯入／PlayMode 4 秒驗收、Windows Standalone 玩家 build 通過（465 MB、0 error）。</span></figcaption></figure>
+    <figure style="padding:18px 20px"><figcaption><b style="color:var(--gold)">尚未驗收</b><span style="color:var(--text);margin-top:6px">連續對戰玩法、玩家輸入與相機、拉人位移與反彈物理、音效與 UI、效能實測與 FPS 保證。目前倒地袍襬仍有輕微硬碗、Idle 腳踝 ±3-4cm 殘餘浮沉，皆為已知妥協。</span></figcaption></figure>
+  </div>
+</section>
+
+<footer>
+  <p>Unity 6.3 LTS · URP Forward+ · D3D12 · 2026-10-25 擷取<br>
+  開發紀錄：<a href="https://github.com/xclas721/MLEM-Unity">github.com/xclas721/MLEM-Unity</a></p>
+</footer>
+</main>
+</html>
